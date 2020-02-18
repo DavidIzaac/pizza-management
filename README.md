@@ -1,7 +1,7 @@
 # Requirement
 
 NodeJS (> 10.16.3)
-MongoDB
+MongoDB and
 Docker (optional)
 
 # Installation
@@ -13,5 +13,5 @@ Docker (optional)
 
 # Docker Installation
 
-You can directly pull the docker image in the public repository: davidavidavid/pizza-management
+You can directly pull the docker image in the public repository: davidavidavid/pizza-management.
 To connect the application with mongo container, you can run `docker-compose up`
