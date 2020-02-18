@@ -1,0 +1,25 @@
+{
+  "pizzas": [
+    {
+      "toppings": ["Pepperoni", "Mushrooms"]
+    },
+    {
+      "toppings": ["Onions"]
+    },
+    {
+      "toppings": ["Sausage", "Bacon", "Extra cheese"]
+    },
+    {
+      "toppings": ["Black olives", "Green peppers", "Pineapple", "Spinach"]
+    },
+    {
+      "toppings": ["Onions", "Mushrooms", "Sausage"]
+    },
+    {
+      "toppings": ["Bacon", "Green peppers"]
+    },
+    {
+      "toppings": ["Extra cheese", "Green peppers", "Mushrooms"]
+    }
+  ]
+}
