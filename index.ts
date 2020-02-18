@@ -1,26 +1,22 @@
 import { Restaurant } from './models/restaurants.model';
 import { QueueManager } from './models/queues-manager.model';
-import setupDB from './helpers/setup-db.helper';
-
-setupDB()
+import { setupDB, dropAllCollections } from './helpers/setup-db.helper';
+import createPersonel from './helpers/create-personel.helper';
 
 var restaurant = new Restaurant();
 var queuesManager = new QueueManager();
-restaurant.addDoughChef()
-restaurant.addDoughChef()
 
-restaurant.addToppingChef();
-restaurant.addToppingChef();
-restaurant.addToppingChef();
-
-restaurant.addOven();
-
-restaurant.addServer()
-restaurant.addServer()
 export { restaurant, queuesManager }
 
 async function launchApp() {
-    restaurant.start();
+    try {
+        await setupDB()
+        await dropAllCollections(); // keep only collection of the previous launch
+        createPersonel();
+        restaurant.start();
+    } catch (err) {
+        console.error(err);
+    }
 }
 launchApp()
 

@@ -1,6 +1,8 @@
 export class Personnel {
 
-    constructor() { }
     isAvailable: boolean = true;
+    productivity = 1;
+
+    constructor() { }
 
 }

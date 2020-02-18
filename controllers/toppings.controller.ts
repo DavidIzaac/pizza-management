@@ -32,8 +32,9 @@ class ToppingController extends ProcessLogger {
 
   async addToppingToPizza(chef: ToppingChef, pizza) {
     if (pizza.toppings.length > 0) {
-      pizza.toppings.pop()
-      pizza.toppings.pop()
+      for (let i = 0; i < chef.productivity; i++) {
+        pizza.toppings.pop()
+      }
       try {
         await this.doTask(chef)
         this.addToppingToPizza(chef, pizza)
