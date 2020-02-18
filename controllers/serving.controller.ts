@@ -1,5 +1,6 @@
 import { restaurant } from '../index';
 import { Server } from '../models/personels/server.model';
+import servingService from '../services/serving.service';
 
 class ServingController {
 
@@ -11,7 +12,9 @@ class ServingController {
 
     checkServingQueue(server: Server) {
         if (server.isAvailable && restaurant.servingQueue.pizzas > 0) {
-            return server.servePizza()
+            server.isAvailable = false;
+            restaurant.servingQueue.pop();
+            return servingService.servingMaker()
                 .then(() => {
                     console.log("Serving done, passing it to serve chef...");
                     server.isAvailable = true;

@@ -1,15 +1,3 @@
-import { restaurant } from "../..";
-import ovenService from "../../services/oven.service";
+import { Personnel } from "./personel.model";
 
-export class Oven {
-
-    constructor() { }
-    isAvailable: boolean = true;
-
-    cookPizza() {
-        this.isAvailable = false;
-        restaurant.ovenQueue.pop();
-        return ovenService.ovenMaker()
-    }
-
-}
+export class Oven extends Personnel { }

@@ -1,6 +1,7 @@
 import { restaurant } from '../index';
 import { ToppingChef } from '../models/personels/topping-chef.model';
 import ovenController from './oven.controller';
+import toppingService from '../services/topping.service';
 
 class ToppingController {
 
@@ -12,7 +13,10 @@ class ToppingController {
 
   checkToppingQueue(chef: ToppingChef) {
     if (chef.isAvailable && restaurant.toppingQueue.pizzas > 0) {
-      return chef.addToppingToPizza()
+      chef.isAvailable = false;
+      restaurant.servingQueue.pop();
+      restaurant.servingQueue.pop();
+      return toppingService.toppingMaker()
         .then(() => {
           console.log("Topping done, passing it to serve chef...");
           chef.isAvailable = true;

@@ -1,6 +1,7 @@
 import { restaurant } from '../index';
 import toppingController from './toppings.controller';
 import { DoughChef } from '../models/personels/dough-chef.model';
+import doughService from '../services/dough.service';
 
 class DoughController {
 
@@ -11,9 +12,11 @@ class DoughController {
 
   checkDoughQueue(chef: DoughChef) {
     if (chef.isAvailable && restaurant.doughQueue.pizzas > 0) {
-      return chef.makeDough()
+      restaurant.doughQueue.pop();
+      chef.isAvailable = false
+      return doughService.doughMaker()
         .then(() => {
-          console.log("Dough done, passing it to topping chef...");
+          console.log('Dough Done');
           chef.isAvailable = true;
           this.checkDoughQueue(chef)
           toppingController.prepareTopping();
