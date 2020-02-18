@@ -1,6 +1,4 @@
-import * as dotenv from 'dotenv';
 import { restaurant } from '..';
-dotenv.config();
 
 export default function createPersonel() {
     const serverNumber = parseInt(process.env['SERVER'])

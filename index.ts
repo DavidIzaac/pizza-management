@@ -2,6 +2,9 @@ import { Restaurant } from './models/restaurants.model';
 import { QueueManager } from './models/queues-manager.model';
 import { setupDB, dropAllCollections } from './helpers/setup-db.helper';
 import createPersonel from './helpers/create-personel.helper';
+import * as dotenv from 'dotenv';
+
+dotenv.config()
 
 var restaurant = new Restaurant();
 var queuesManager = new QueueManager();

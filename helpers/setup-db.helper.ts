@@ -1,7 +1,7 @@
 import * as mongoose from 'mongoose';
 
 export function setupDB() {
-  return mongoose.connect('mongodb://localhost/reports', { useNewUrlParser: true })
+  return mongoose.connect(process.env.DB_URI, { useNewUrlParser: true })
 }
 
 export async function dropAllCollections() {

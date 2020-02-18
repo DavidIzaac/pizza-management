@@ -5,7 +5,18 @@ services:
     image: davidavidavid/pizza-management:latest
     depends_on:
       - db
+    environment:
+      - DB_URI=mongodb://172.28.1.1:27017/report
   db:
     image: mongo:4.0
     ports:
       - "27017:27017"
+    networks:
+      dev_net:
+        ipv4_address: 172.28.1.1
+networks:
+  dev_net:
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.28.0.0/16
